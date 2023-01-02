@@ -1,0 +1,1 @@
+cmd_/home/john/develop/kmod/hello1/modules.order := {   echo /home/john/develop/kmod/hello1/hello1.ko;   echo /home/john/develop/kmod/hello1/hello2.ko;   echo /home/john/develop/kmod/hello1/hello5.ko; :; } | awk '!x[$$0]++' - > /home/john/develop/kmod/hello1/modules.order
