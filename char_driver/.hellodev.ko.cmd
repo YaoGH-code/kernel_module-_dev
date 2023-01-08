@@ -1,0 +1,1 @@
+cmd_/home/john/Desktop/driver/hellodev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/john/Desktop/driver/hellodev.ko /home/john/Desktop/driver/hellodev.o /home/john/Desktop/driver/hellodev.mod.o;  true
