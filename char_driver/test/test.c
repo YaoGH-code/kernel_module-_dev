@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     else {
         printf("open successe\r\n");
     }
-    w_len = write(fd,buf, DATA_NUM);
+    w_len = write(fd, buf, DATA_NUM);
     r_len = read(fd, buf, DATA_NUM);
     printf("%d %d\r\n", w_len, r_len);
     printf("%s\r\n",buf);

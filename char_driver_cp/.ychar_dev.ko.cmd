@@ -1,0 +1,1 @@
+cmd_/home/john/Desktop/char_driver_cp/ychar_dev.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/john/Desktop/char_driver_cp/ychar_dev.ko /home/john/Desktop/char_driver_cp/ychar_dev.o /home/john/Desktop/char_driver_cp/ychar_dev.mod.o;  true
