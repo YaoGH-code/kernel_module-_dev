@@ -1,5 +1,5 @@
 #include <linux/module.h>
-#include <linux/kernel.h>	/* Needed for KERN_INFO */
+#include <linux/kernel.h>
 #include <linux/moduleparam.h>
 #include <linux/cdev.h>
 #include <linux/fs.h>
@@ -13,38 +13,28 @@
 
 struct cdev *gDev;
 struct file_operations *gFile;
-dev_t	devNum;
+dev_t devNum;
 unsigned int subDevNum = 1;
 int reg_major=232;
 int reg_minor=0;
 char *buffer;
 
-int hello_open(struct inode *p, struct file *f)
-
-{
+int hello_open(struct inode *p, struct file *f){
 	printk(KERN_INFO "hello_open\r\n");
 	return 0;
 }
 
-
-
-ssize_t hello_write(struct file *f, const char __user *u, size_t s, loff_t *l)
-
-{
+ssize_t hello_write(struct file *f, const char __user *u, size_t s, loff_t *l){
 	printk(KERN_INFO "hello_write\r\n");
 	return 0;
 }
 
-ssize_t hello_read(struct file *f, char __user *u, size_t s, loff_t *l)
-
-{
+ssize_t hello_read(struct file *f, char __user *u, size_t s, loff_t *l){
 	printk(KERN_INFO "hello_read\r\n");
 	return 0;
 }
 
-int hello_init(void)
-
-{
+int hello_init(void){
 	devNum = MKDEV(reg_major, reg_minor);
 	if(OK == register_chrdev_region(devNum, subDevNum, "helloworld")){
 	printk(KERN_INFO "register_chrdev_region ok \n");
@@ -61,14 +51,10 @@ int hello_init(void)
 	gFile->owner = THIS_MODULE;
 	cdev_init(gDev, gFile);
 	cdev_add(gDev, devNum, 1);
-	return 0;
-
+	return 0
 }
 
-
-
-void __exit hello_exit(void)
-{
+void __exit hello_exit(void){
 	printk(KERN_INFO " hello driver exit \n");
 	cdev_del(gDev);
 	kfree(gFile);
